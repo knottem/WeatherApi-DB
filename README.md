@@ -10,14 +10,15 @@ The database has two tables: city and user. The city table has the following col
 
 - id: The id of the city
 - name: The name of the city
-- longitude: The longitude of the city
-- latitude: The latitude of the city
+- lon: The longitude of the city
+- lat: The latitude of the city
 
 The user table has the following columns:
 
 - id: The id of the user
 - username: The username of the user
 - password: The password of the user
+- role: The role that the user has (Can be USER, SUPERUSER or ADMIN)
 
 ## Made by
 
