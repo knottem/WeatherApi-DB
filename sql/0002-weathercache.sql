@@ -4,13 +4,36 @@
 
 USE `weatherdb`;
 
-DROP TABLE IF EXISTS `cache`;
+-- Create the Cache table
 
-CREATE TABLE `cache` (
-    `id` bigint NOT NULL,
-    `lat` double NOT NULL,
-    `lon` double NOT NULL,
-    `message` varchar(255),
-    `temperature` double NOT NULL,
-    PRIMARY KEY (`id`)
+CREATE TABLE `weather` (
+`id` bigint NOT NULL AUTO_INCREMENT,
+`message` varchar(255) DEFAULT NULL,
+`time_stamp` datetime NOT NULL,
+PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Create the Weather Entity table
+CREATE TABLE `weather_data` (
+`id` bigint NOT NULL AUTO_INCREMENT,
+`valid_time` datetime NOT NULL,
+`temperature` float NOT NULL,
+`weather_code` int NOT NULL,
+`wind_speed` float NOT NULL,
+`wind_direction` float NOT NULL,
+`precipitation` float NOT NULL,
+`weather_entity_id` bigint NOT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `fk_weather_entity_id` FOREIGN KEY (`weather_entity_id`) REFERENCES `weather` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `weather_cache` (
+`id` bigint NOT NULL AUTO_INCREMENT,
+`key` varchar(255) UNIQUE NOT NULL,
+`timestamp` datetime NOT NULL,
+`weather_entity_id` bigint NOT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `fk_weather_entity_id` FOREIGN KEY (`weather_entity_id`) REFERENCES `weather` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
