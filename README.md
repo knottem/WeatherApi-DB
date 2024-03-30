@@ -4,13 +4,13 @@
 
 This is a database for the [WeatherApi project](https://github.com/knottem/WeatherApi) that is written by using Dockerfile and sql scripts. The database is a MySQL database and it is used to store city information(Name, Longitute and Latitute) and also a user table for the users of the WeatherApi.
 
-# Database Structure Overview
+## Database Structure Overview
 
 The tables for the database include `city`, `user`, `weather`, and `weather_data`. Below is a detailed overview of each table and their respective columns:
 
-## Tables and Columns
+### Tables and Columns
 
-### 1. City Table
+#### 1. City Table
 
 This table stores information about cities.
 
@@ -19,7 +19,7 @@ This table stores information about cities.
 - **lon**: Longitude coordinate of the city.
 - **lat**: Latitude coordinate of the city.
 
-### 2. User Table
+#### 2. User Table
 
 This table keeps track of user information.
 
@@ -28,7 +28,7 @@ This table keeps track of user information.
 - **password**: The user's password (hashed for security).
 - **role**: Defines the user's role within the system. Roles can be one of the following: `USER`, `SUPERUSER`, or `ADMIN`.
 
-### 3. Weather Table
+#### 3. Weather Table
 
 Contains weather information linked to cities.
 
@@ -37,7 +37,7 @@ Contains weather information linked to cities.
 - **message**: A message or key associated with the weather, used by the backend.
 - **city**: The ID of the city this weather record is associated with.
 
-### 4. Weather Data Table
+#### 4. Weather Data Table
 
 Holds detailed weather data.
 
