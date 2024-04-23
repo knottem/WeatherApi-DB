@@ -29,4 +29,14 @@ create table weather_data
             on delete cascade
 );
 
+CREATE TABLE latest_weather_api (
+    id VARCHAR(36) NOT NULL,
+    latest_weather_id VARCHAR(36) NOT NULL,
+    city_id VARCHAR(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    smhi BOOLEAN NOT NULL DEFAULT FALSE,
+    yr BOOLEAN NOT NULL DEFAULT FALSE,
+    PRIMARY KEY (id),
+    FOREIGN KEY (latest_weather_id) REFERENCES weather (id),
+    FOREIGN KEY (city_id) REFERENCES city (id)
+) ENGINE = InnoDB;
 
