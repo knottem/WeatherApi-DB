@@ -50,6 +50,23 @@ Holds detailed weather data.
 - **valid_time**: The time period for which the weather data is considered valid.
 - **weather_id**: Links this weather data to a specific weather record.
 
+#### 5. Latest Weather Table
+
+Stores keys for the latest weather data for each city
+
+- **id**: Unique identifier for the latest weather record.
+- **latest_weather_id**: The ID of the weather record associated with this latest weather data.
+- **city_id**: The ID of the city this weather record is associated with.
+- **smhi**: Boolean value indicating if the weather contains data from SMHI.
+- **yr**: Boolean value indicating if the weather contains data from YR.
+- **fmi**: Boolean value indicating if the weather contains data from FMI.
+
+
+### Database schema is shown in the image below:
+
+![Database Schema](./weatherdb.png)
+
+
 ## Made by
 
 - [Erik](https://github.com/knottem)
