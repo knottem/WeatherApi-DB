@@ -61,6 +61,15 @@ Stores keys for the latest weather data for each city
 - **yr**: Boolean value indicating if the weather contains data from YR.
 - **fmi**: Boolean value indicating if the weather contains data from FMI.
 
+#### 6. API Status Table
+
+Stores information if an API is enabled or disabled.
+
+- **id**: Unique identifier for the API status record.
+- **api_name**: The name of the API.
+- **is_active**: Boolean value indicating if the API is enabled or disabled.
+- **last_checked**: The timestamp of the last update to the API status.
+
 
 ### Database schema is shown in the image below:
 

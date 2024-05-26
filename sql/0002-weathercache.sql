@@ -41,3 +41,15 @@ CREATE TABLE latest_weather_api (
     FOREIGN KEY (city_id) REFERENCES city (id)
 ) ENGINE = InnoDB;
 
+CREATE TABLE api_status (
+    id VARCHAR(36) NOT NULL PRIMARY KEY,
+    api_name VARCHAR(50) NOT NULL,
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    last_checked TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO api_status (id, api_name, is_active) VALUES
+    ('f6c1c0d9-62ab-4781-bdb3-e0b522886bd3', 'SMHI', TRUE),
+    ('b842c88b-9ccd-489c-92f9-5d3a3f5e5657', 'YR', TRUE),
+    ('f9e22288-6a73-4058-8c6e-df5cca979c48', 'FMI', TRUE);
+
